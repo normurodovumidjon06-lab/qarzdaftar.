@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAXPRO - Raqamli Dunyoga Professional Qadam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;800&display=swap');
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #fcfcfd;
+        }
+
+        h1, h2, h3, .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-blur {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.15);
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body class="text-slate-900">
+
+    <!-- Sahifa Yuklanishi -->
+    <div id="loader">
+        <div class="text-center">
+            <div class="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4"></div>
+            <span class="font-bold text-blue-600 tracking-[5px] uppercase">MAXPRO</span>
+        </div>
+    </div>
+
+    <!-- Navigatsiya -->
+    <nav class="fixed w-full z-50 nav-blur py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center text-white shadow-lg">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="text-2xl font-extrabold tracking-tight">MAX<span class="text-blue-600">PRO</span></span>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-10 font-semibold text-slate-600">
+                <a href="#home" class="hover:text-blue-600 transition">Asosiy</a>
+                <a href="#services" class="hover:text-blue-600 transition">Xizmatlar</a>
+                <a href="#projects" class="hover:text-blue-600 transition">Loyihalar</a>
+                <a href="#about" class="hover:text-blue-600 transition">Biz haqimizda</a>
+                <a href="#contact" class="gradient-bg text-white px-8 py-3 rounded-full hover:shadow-xl transition-all active:scale-95">Bog'lanish</a>
+            </div>
+
+            <button id="mobile-toggle" class="lg:hidden text-2xl"><i class="fas fa-bars-staggered"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobil Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 text-2xl font-bold hidden">
+        <button id="close-menu" class="absolute top-8 right-8"><i class="fas fa-times"></i></button>
+        <a href="#home" class="m-link">Asosiy</a>
+        <a href="#services" class="m-link">Xizmatlar</a>
+        <a href="#projects" class="m-link">Loyihalar</a>
+        <a href="#about" class="m-link">Biz haqimizda</a>
+        <a href="#contact" class="m-link text-blue-600">Bog'lanish</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-48 pb-32 px-6 overflow-hidden">
+        <div class="blob -top-24 -left-24"></div>
+        <div class="blob bottom-0 right-0" style="background: rgba(124, 58, 237, 0.05);"></div>
+        
+        <div class="container mx-auto text-center">
+            <div class="inline-flex items-center space-x-2 bg-blue-50 border border-blue-100 px-4 py-2 rounded-full mb-8">
+                <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                <span class="text-blue-600 text-xs font-bold uppercase tracking-widest">IT Innovatsiyalar Markazi</span>
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-[1.1]">
+                G'oyalarni <br> <span class="gradient-text">Raqamli Reallikka</span> <br> aylantiramiz
+            </h1>
+            <p class="text-slate-500 text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
+                Biznesingiz uchun mukammal veb-saytlar, mobil ilovalar va 3D modellar. Navoiy shahridagi eng ilg'or raqamli agentlik.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <a href="#projects" class="px-12 py-5 gradient-bg text-white rounded-2xl font-bold text-lg shadow-2xl shadow-blue-200 hover:-translate-y-1 transition-all">Loyihalarni ko'rish</a>
+                <a href="tel:+998972979737" class="px-12 py-5 bg-white border border-slate-200 text-slate-800 rounded-2xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center">
+                    <i class="fas fa-phone-alt mr-3 text-blue-600"></i> +998 97 297 97 37
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">Bizning Xizmatlarimiz</h2>
+                <p class="text-slate-500 max-w-xl mx-auto">Biznesingizni har tomonlama rivojlantirish uchun professional yechimlar</p>
+                <div class="mt-4 font-bold text-blue-600 text-xl"><i class="fas fa-headset mr-2"></i> +998 97 297 97 37</div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Veb Dasturlash (Frontend) -->
+                <div class="card-hover bg-slate-50 p-10 rounded-[2.5rem] border border-transparent hover:border-blue-200">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-sm">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Frontend Dasturlash</h3>
+                    <p class="text-slate-500 mb-6">Foydalanuvchilar uchun qulay, chiroyli va barcha qurilmalarga mos tushuvchi interfeyslar (React, Next.js, Vue).</p>
+                </div>
+
+                <!-- Veb Dasturlash (Backend) -->
+                <div class="card-hover bg-slate-50 p-10 rounded-[2.5rem] border border-transparent hover:border-indigo-200">
+                    <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-sm">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Backend Dasturlash</h3>
+                    <p class="text-slate-500 mb-6">Murakkab ma'lumotlar bazasi, xavfsiz server tizimlari va yuqori tezlikdagi API xizmatlari (Node.js, Go, Python).</p>
+                </div>
+
+                <!-- Mobil Ilovalar -->
+                <div class="card-hover bg-slate-50 p-10 rounded-[2.5rem] border border-transparent hover:border-purple-200">
+                    <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-sm">
+                        <i class="fas fa-mobile-screen"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">iOS & Android Ilovalar</h3>
+                    <p class="text-slate-500 mb-6">Har qanday mobil qurilma uchun professional ilovalar. Flutter va Native texnologiyalar yordamida.</p>
+                </div>
+
+                <!-- 3D Dizayn -->
+                <div class="card-hover bg-slate-50 p-10 rounded-[2.5rem] border border-transparent hover:border-orange-200">
+                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-sm">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">3D Dizayner</h3>
+                    <p class="text-slate-500 mb-6">Mahsulotlarni vizualizatsiya qilish, 3D modellashtirish va arxitektura dizaynlari (Blender, Cinema 4D).</p>
+                </div>
+
+                <!-- SEO & Marketing -->
+                <div class="card-hover bg-slate-50 p-10 rounded-[2.5rem] border border-transparent hover:border-green-200">
+                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-sm">
+                        <i class="fas fa-magnifying-glass-chart"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">SEO & Marketing</h3>
+                    <p class="text-slate-500 mb-6">Google qidiruv tizimida 1-o'ringa chiqish, SMM va raqamli reklama orqali savdolarni oshirish.</p>
+                </div>
+
+                <!-- Kompyuter Savodxonligi -->
+                <div class="card-hover bg-slate-50 p-10 rounded-[2.5rem] border border-transparent hover:border-rose-200">
+                    <div class="w-16 h-16 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-sm">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Kompyuter Savodxonligi</h3>
+                    <p class="text-slate-500 mb-6">Boshlang'ich IT bilimlar, ofis dasturlari va internetdan xavfsiz foydalanish bo'yicha professional kurslar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Detailed Section -->
+    <section id="projects" class="py-24 bg-slate-50 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">Biz qila oladigan loyihalar</h2>
+                <p class="text-slate-500">Eng murakkab g'oyalaringizni professional darajada amalga oshiramiz</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-10">
+                <!-- E-Commerce -->
+                <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-sm group">
+                    <div class="h-64 bg-blue-600 flex items-center justify-center text-white text-8xl">
+                        <i class="fas fa-shopping-cart opacity-30 group-hover:scale-110 transition duration-500"></i>
+                    </div>
+                    <div class="p-10">
+                        <h3 class="text-2xl font-bold mb-4">E-Commerce (Onlayn Do'konlar)</h3>
+                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+                            To'liq savdo tizimi: Mahsulotlar filtri, Click/Payme to'lov tizimlari, buyurtmalarni boshqarish va yetkazib berish xizmati bilan integratsiya.
+                        </p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold rounded uppercase">To'lovlar</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold rounded uppercase">Admin Panel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tibbiyot Ilovasi -->
+                <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-sm group">
+                    <div class="h-64 bg-rose-500 flex items-center justify-center text-white text-8xl">
+                        <i class="fas fa-hospital-user opacity-30 group-hover:scale-110 transition duration-500"></i>
+                    </div>
+                    <div class="p-10">
+                        <h3 class="text-2xl font-bold mb-4">Tibbiyot Ilovalari</h3>
+                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+                            Shifoxonalar uchun: Navbatga yozilish, bemorlar elektron kartasi, laboratoriya natijalarini kuzatish va shifokor bilan onlayn chat tizimi.
+                        </p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 bg-rose-50 text-rose-600 text-[10px] font-bold rounded uppercase">Booking</span>
+                            <span class="px-3 py-1 bg-rose-50 text-rose-600 text-[10px] font-bold rounded uppercase">Tele-med</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fintech Dashboard -->
+                <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-sm group">
+                    <div class="h-64 bg-slate-800 flex items-center justify-center text-white text-8xl">
+                        <i class="fas fa-chart-pie opacity-30 group-hover:scale-110 transition duration-500"></i>
+                    </div>
+                    <div class="p-10">
+                        <h3 class="text-2xl font-bold mb-4">Fintech Dashboard</h3>
+                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+                            Moliya tizimlari: Real vaqtda grafiklar, valyuta kurslari monitoringi, tranzaksiyalar tarixi va yuqori darajadagi xavfsizlik (2FA).
+                        </p>
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 bg-slate-100 text-slate-800 text-[10px] font-bold rounded uppercase">Analytics</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-800 text-[10px] font-bold rounded uppercase">Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Address -->
+    <section id="about" class="py-24 px-6 overflow-hidden">
+        <div class="container mx-auto">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 relative">
+                    <div class="bg-blue-600 rounded-[3rem] p-12 text-white">
+                        <h2 class="text-4xl font-bold mb-6">Nega bizni tanlashadi?</h2>
+                        <ul class="space-y-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle mt-1 mr-4 text-blue-200"></i>
+                                <span><strong>5 yillik tajriba:</strong> IT bozorida ishonchli hamkor sifatida tanilganmiz.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle mt-1 mr-4 text-blue-200"></i>
+                                <span><strong>Individual yondashuv:</strong> Har bir mijoz uchun maxsus strategiya ishlab chiqamiz.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle mt-1 mr-4 text-blue-200"></i>
+                                <span><strong>Kafolatlangan sifat:</strong> Ishimizga to'liq javob beramiz va qo'llab-quvvatlaymiz.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl font-black mb-8">Bizning Manzilimiz</h2>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                                <i class="fas fa-map-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Navoiy shahri</h4>
+                                <p class="text-slate-500 text-lg">Islom Karimov shoh ko'chasi, 90A uy</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-6">
+                            <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Ish vaqti</h4>
+                                <p class="text-slate-500 text-lg">Dushanba - Shanba, 08:00 - 23:30</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Telegram Section -->
+    <section id="contact" class="py-24 px-6 bg-slate-900 text-white relative overflow-hidden">
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 class="text-5xl font-black mb-8 leading-tight">Yangi loyihangizni <br> <span class="text-blue-500">bugunoq</span> boshlang!</h2>
+                    <p class="text-slate-400 text-lg mb-12">Biz bilan bog'laning va bepul konsultatsiya oling. Mutaxassislarimiz loyihangizni tahlil qilib berishadi.</p>
+                    
+                    <div class="space-y-6">
+                        <a href="tel:+998972979737" class="flex items-center space-x-6 group">
+                            <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 transition duration-300 text-2xl">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span class="text-xl font-bold">+998 97 297 97 37</span>
+                        </a>
+                        <a href="https://t.me/umidjon_v1nes4" class="flex items-center space-x-6 group">
+                            <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-sky-500 transition duration-300 text-2xl">
+                                <i class="fab fa-telegram-plane"></i>
+                            </div>
+                            <span class="text-xl font-bold">@umidjon_v1nes4</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white p-10 rounded-[3rem] text-slate-900 shadow-2xl">
+                    <form id="contact-form" class="space-y-5">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 ml-1">To'liq ismingiz</label>
+                            <input type="text" placeholder="Ism Familiya" class="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:border-blue-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 ml-1">Xizmat turi</label>
+                            <select class="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:border-blue-500 transition">
+                                <option>Veb-sayt yaratish</option>
+                                <option>Mobil ilova</option>
+                                <option>3D Dizayn</option>
+                                <option>SEO & Marketing</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 ml-1">Xabaringiz</label>
+                            <textarea rows="4" placeholder="Loyiha haqida qisqacha..." class="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:border-blue-500 transition"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-5 gradient-bg text-white rounded-2xl font-bold text-lg shadow-xl hover:opacity-90 transition">Murojaat yuborish</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Abstract Decors -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-600/10 rounded-full blur-[100px]"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white border-t border-slate-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl font-black">MAX<span class="text-blue-600">PRO</span></span>
+                </div>
+                <div class="flex space-x-8 font-semibold text-slate-500 text-sm">
+                    <a href="#home" class="hover:text-blue-600">Asosiy</a>
+                    <a href="#services" class="hover:text-blue-600">Xizmatlar</a>
+                    <a href="#projects" class="hover:text-blue-600">Loyihalar</a>
+                    <a href="#about" class="hover:text-blue-600">Biz haqimizda</a>
+                </div>
+                <div class="text-slate-400 text-xs font-medium">
+                    © 2024 MAXPRO Digital Agency. Barcha huquqlar himoyalangan.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loader yopilishi
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
+            }, 1000);
+        });
+
+        // Mobil Menu Funksiyalari
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        const mLinks = document.querySelectorAll('.m-link');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        const hideMenu = () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeMenu.addEventListener('click', hideMenu);
+        mLinks.forEach(link => link.addEventListener('click', hideMenu));
+
+        // Formani yuborish (Simulatsiya)
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog\'lanamiz.');
+            this.reset();
+        });
+
+        // Navigatsiya scroll effekti
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('py-2', 'shadow-lg');
+            } else {
+                nav.classList.remove('py-2', 'shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
